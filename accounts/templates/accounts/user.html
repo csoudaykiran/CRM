@@ -1,0 +1,40 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+
+
+<center><a class="btn btn-primary" href="{% url 'place_order' %}">Place New Order</a></center>
+
+<div class="row">
+	
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Category</th>
+					<th>Date Ordered</th>
+					<th>Status</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for order in context.orders %}
+
+				<tr>
+					<td>{{order.product}}</td>
+					<td>{{order.product.category}}</td>
+					<td>{{ order.date_created }}</td>
+					<td>{{order.status}}</td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+
+				<!-- Inside the user page template -->
+				
+
+				
+
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

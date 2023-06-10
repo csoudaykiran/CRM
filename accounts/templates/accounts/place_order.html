@@ -1,0 +1,40 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+<center>
+<div class="col-md-6">
+				<div class="card card-body">
+					<h5>Products</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Product</th>
+							<th>Price</th>
+						</tr>
+						{% for i in products %}
+						<tr>
+							<td>{{ i.name }}</td>
+							<td>{{ i.price }}</td>
+						</tr>
+						{% endfor %}
+
+					</table>
+				</div>
+	</div>
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h2>{{ context.customer.name }}</h2>  <!-- Display the customer's name as a heading -->
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {{ form.status }}
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<
+    /center>
+{% endblock %}
