@@ -90,8 +90,14 @@ DATABASES = {
 import os
 import dj_database_url
 
+# Get the DATABASE_URL environment variable
 url = os.environ.get("DATABASE_URL")
-DATABASES = {'default': dj_database_url.parse(url)}
+
+# Encode the url string into bytes using UTF-8 encoding
+url_bytes = url.encode("utf-8")
+
+# Parse the database configuration from the URL
+DATABASES = {'default': dj_database_url.parse(url_bytes)}
 
 
 #DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
