@@ -79,11 +79,18 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+'''
+import dj_database_url
+
+DATABASES ={
+    'default' : dj_database_url.parse("postgres://crm_xjdb_user:EeSety6cKKubHCtaK9KFJx3H5Alhf2iT@dpg-ci1uku67avj2t31sbbfg-a.singapore-postgres.render.com/crm_xjdb")
 }
 
 #DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
