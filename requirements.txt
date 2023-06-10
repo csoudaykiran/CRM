@@ -1,6 +1,6 @@
 asgiref==3.6.0
 django-database-url==1.0.3
-Django==4.2.1
+Django==3.2.19
 django_filter==23.2
 psycopg2==2.9.5
 dj-database-url==1.2.0
