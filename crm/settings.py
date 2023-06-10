@@ -87,18 +87,9 @@ DATABASES = {
     }
 }
 '''
-import os
-import dj_database_url
+DATABASE_URL = "postgres://crm_xjdb_user:EeSety6cKKubHCtaK9KFJx3H5Alhf2iT@dpg-ci1uku67avj2t31sbbfg-a.singapore-postgres.render.com/crm_xjdb"
 
-# Get the DATABASE_URL environment variable
-url = os.environ.get("DATABASE_URL")
-
-# Encode the url string into bytes using UTF-8 encoding
-url_bytes = url.encode("utf-8")
-
-# Parse the database configuration from the URL
-DATABASES = {'default': dj_database_url.parse(url_bytes)}
-
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 #DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 # Password validation
